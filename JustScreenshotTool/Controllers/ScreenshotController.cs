@@ -30,6 +30,9 @@ namespace JustScreenshotTool.Controllers
             [FromQuery] int scale = 1,
             [FromQuery] string format = "png" )
         {
+            if ( format == "jpg" )
+                format = "jpeg";
+
             try
             {
                 // Validate URL
@@ -93,7 +96,6 @@ namespace JustScreenshotTool.Controllers
                 var screenshotOptions = new ScreenshotOptions
                 {
                     Type = format == "png" ? ScreenshotType.Png : ScreenshotType.Jpeg,
-                    Quality = 90,
                     Clip = new Clip
                     {
                         X = x,
@@ -103,6 +105,11 @@ namespace JustScreenshotTool.Controllers
                         Scale = scale
                     }
                 };
+
+                if ( format == "jpeg" )
+                {
+                    screenshotOptions.Quality = 90;
+                }
 
                 var screenshotData = await page.ScreenshotDataAsync(screenshotOptions);
 
