@@ -2,6 +2,16 @@
 
 A simple, containerized web API for taking high-quality screenshots of web pages or specific sections of pages.
 
+## Quick Example
+
+```bash
+# Capture a screenshot of Google's homepage
+GET http://localhost:8080/Screenshot?url=https://www.google.com
+
+# Capture a specific section with custom dimensions and wait time
+GET http://localhost:8080/Screenshot?url=https://www.example.com&waitTime=5000&x=100&y=200&width=800&height=600&scale=2&format=png
+```
+
 ## Features
 
 - Take screenshots of entire web pages or specific sections
