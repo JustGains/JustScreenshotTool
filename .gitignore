@@ -410,3 +410,4 @@ JustGains-API/JustGains-API.generated.sln
 /YoutubeTranscriberService/videos
 videos/
 /JustGains-API/temp
+/.claude/settings.local.json
