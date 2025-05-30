@@ -26,10 +26,14 @@ namespace JustScreenshotTool
 
             // Configure the HTTP request pipeline.
             app.UseHttpsRedirection();
+            app.UseStaticFiles();
             app.UseAuthorization();
             app.UseCors("AllowAll");
 
             app.MapControllers();
+
+            // Serve index.html at root
+            app.MapGet("/", () => Results.Redirect("/index.html"));
 
             app.Run();
         }
